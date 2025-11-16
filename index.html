@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale pelos Animais - Disque Denúncia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="heart-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <h1>Fale pelos Animais</h1>
+                </div>
+                <nav class="nav">
+                    <a href="#sobre">Sobre</a>
+                    <a href="#denuncia">Denúncia</a>
+                    <a href="#contato">Contato</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Proteja os Animais de Raul Soares</h2>
+                <p>Denuncie maus-tratos e ajude a salvar vidas. Seu anonimato é garantido.</p>
+                <button class="btn btn-primary" onclick="document.getElementById('denuncia').scrollIntoView({behavior: 'smooth'})">
+                    Fazer uma Denúncia
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message hidden">
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span>Denúncia enviada com sucesso! Obrigado por sua ação em prol dos animais.</span>
+    </div>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2>Por que Denunciar?</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h3>Proteção Legal</h3>
+                    <p>Maus-tratos de animais é crime previsto em lei. Denúncias ajudam a responsabilizar agressores.</p>
+                </div>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                    <h3>Salvando Vidas</h3>
+                    <p>Sua denúncia pode salvar um animal do sofrimento e garantir seu bem-estar.</p>
+                </div>
+                <div class="card">
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <h3>Anonimato Garantido</h3>
+                    <p>Você pode denunciar sem se identificar. Sua segurança é nossa prioridade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Denuncia Form Section -->
+    <section id="denuncia" class="denuncia">
+        <div class="container">
+            <h2>Faça sua Denúncia</h2>
+            <p class="subtitle">Preencha o formulário abaixo com as informações sobre o caso de maus-tratos.</p>
+            
+            <div class="form-card">
+                <form id="denunciaForm" onsubmit="handleSubmit(event)">
+                    <!-- Nome do Denunciante -->
+                    <div class="form-group">
+                        <label for="denunciante">Nome do Denunciante (Opcional)</label>
+                        <input 
+                            type="text" 
+                            id="denunciante" 
+                            name="denunciante" 
+                            placeholder="Seu nome (pode deixar em branco)"
+                            class="form-input"
+                        >
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">E-mail *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="seu.email@example.com"
+                            required
+                            class="form-input"
+                        >
+                    </div>
+
+                    <!-- Telefone -->
+                    <div class="form-group">
+                        <label for="telefone">Telefone (Opcional)</label>
+                        <input 
+                            type="tel" 
+                            id="telefone" 
+                            name="telefone" 
+                            placeholder="(31) 99999-9999"
+                            class="form-input"
+                        >
+                    </div>
+
+                    <!-- Endereço -->
+                    <div class="form-group">
+                        <label for="endereco">Endereço do Caso (Opcional)</label>
+                        <input 
+                            type="text" 
+                            id="endereco" 
+                            name="endereco" 
+                            placeholder="Rua, número, bairro..."
+                            class="form-input"
+                        >
+                    </div>
+
+                    <!-- Tipo de Maus-trato -->
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Maus-trato</label>
+                        <select id="tipo" name="tipo" class="form-input">
+                            <option value="negligencia">Negligência</option>
+                            <option value="agressao">Agressão Física</option>
+                            <option value="abandono">Abandono</option>
+                            <option value="exploracao">Exploração</option>
+                            <option value="outro" selected>Outro</option>
+                        </select>
+                    </div>
+
+                    <!-- Descrição -->
+                    <div class="form-group">
+                        <label for="descricao">Descrição Detalhada do Caso *</label>
+                        <textarea 
+                            id="descricao" 
+                            name="descricao" 
+                            placeholder="Descreva com detalhes o que você presenciou ou sabe sobre o caso..."
+                            rows="6"
+                            required
+                            class="form-input"
+                        ></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                        Enviar Denúncia
+                    </button>
+
+                    <p class="form-note">
+                        Seus dados serão enviados para falepelosanimais@gmail.com e tratados com confidencialidade.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info">
+        <div class="container">
+            <h2>Tipos de Maus-tratos</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Negligência</h3>
+                    <p>Falta de cuidados básicos como alimentação, água, abrigo ou atendimento veterinário.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Agressão Física</h3>
+                    <p>Violência, pancadas, queimaduras ou qualquer forma de agressão contra o animal.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Abandono</h3>
+                    <p>Deixar um animal sem cuidados, sozinho ou em situação de risco.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Exploração</h3>
+                    <p>Uso inadequado do animal para trabalho, combates ou outros fins prejudiciais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <h3>E-mail</h3>
+                    <p>falepelosanimais@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <h3>Localização</h3>
+                    <p>Raul Soares, MG</p>
+                </div>
+                <div class="contact-card">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    <h3>Emergência</h3>
+                    <p>Ligue para a polícia: 190</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Fale pelos Animais. Todos os direitos reservados.</p>
+            <p>Protegendo os animais de Raul Soares, um denúncia por vez.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
